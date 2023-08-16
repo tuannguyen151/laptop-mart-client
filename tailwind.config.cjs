@@ -2,7 +2,6 @@
 /** @type {import('tailwindcss').Config} */
 
 const { fontFamily } = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
@@ -20,18 +19,10 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px'
-    },
-    colors: {
-      white: colors.white,
-      green: colors.green,
-      red: colors.red,
-      blue: colors.blue,
-      yellow: colors.yellow,
-      background: '#F9F5EB',
-      color: '#002B5B',
-      button: '#EA5455',
-      hover: '#E4DCCF'
     }
   },
-  plugins: []
+  daisyui: {
+    themes: true
+  },
+  plugins: [require('@tailwindcss/typography'), require('daisyui')]
 }

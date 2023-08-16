@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Layout from '@/components/Layout'
+import ToggleTheme from '@/components/molecules/ToggleTheme'
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
 
       <h1>Home</h1>
 
-      <div className='h-96 bg-red-200'></div>
+      <ToggleTheme />
     </Layout>
   )
 }
