@@ -24,7 +24,7 @@ const ToggleTheme = () => {
   }
 
   return (
-    <button className='btn gap-2' onClick={handleChangeTheme}>
+    <button className='btn btn-ghost btn-circle' onClick={handleChangeTheme}>
       {theme === 'night' ? (
         <MoonIcon className='w-5 h-5' />
       ) : (
