@@ -1,8 +1,16 @@
+import useTranslation from 'next-translate/useTranslation'
+
+import MenuLink from '../atoms/MenuLink'
+
+import { PRODUCTS } from '@/constants/routes'
+
 interface IProps {
   isDesktop?: boolean
 }
 
 const Menu = ({ isDesktop }: IProps) => {
+  const { t } = useTranslation()
+
   return (
     <ul
       tabIndex={0}
@@ -13,13 +21,13 @@ const Menu = ({ isDesktop }: IProps) => {
       }
     >
       <li>
-        <a>Item 1</a>
+        <MenuLink href={PRODUCTS.INDEX} name={t('products_list')} />
       </li>
       <li tabIndex={0}>
         <details>
           <summary>Parent</summary>
           <ul
-            className={`p-2 w-32 text-base-content ${
+            className={`p-2 w-32 text-base-content z-[9999] ${
               isDesktop ? 'border border-base-200' : ''
             }`}
           >

@@ -17,5 +17,9 @@
   "forgot_password": "Quên mật khẩu?",
   "contact": "Liên hệ",
   "best_seller": "Bán chạy nhất",
-  "new_product": "Sản phẩm mới"
+  "new_product": "Sản phẩm mới",
+  "search_by_name": "Tìm kiếm theo tên",
+  "enter_product_name": "Nhập tên sản phẩm",
+  "open_filter": "Mở bộ lọc",
+  "products_list": "Sản phẩm"
 }
