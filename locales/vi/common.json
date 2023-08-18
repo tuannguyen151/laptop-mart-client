@@ -4,5 +4,18 @@
   "logout": "Đăng xuất",
   "items": "Sản phẩm",
   "total": "Tổng",
-  "view_cart": "Xem giỏ hàng"
+  "view_cart": "Xem giỏ hàng",
+  "login_now": "Đăng nhập",
+  "home_banner_description": "Chào mừng đến với cửa hàng trực tuyến của chúng tôi - nơi mà công nghệ và sự tiện ích hội tụ để mang đến cho bạn trải nghiệm mua sắm laptop tốt nhất! Tại đây, chúng tôi tự hào giới thiệu một bộ sưu tập đa dạng các dòng laptop hàng đầu từ các thương hiệu uy tín trên toàn thế giới.",
+  "login": "Đăng nhập",
+  "register": "Đăng ký",
+  "login_description": " Chào mừng bạn đến với website của chúng tôi! Trải nghiệm mua sắm tuyệt vời đang chờ đợi sau cánh cửa này. Nếu đã có tài khoản, hãy đăng nhập ngay. Nếu chưa, đừng bỏ lỡ cơ hội! Hãy đăng ký ngay để trải nghiệm những ưu đãi độc quyền.",
+  "account": "Tài khoản",
+  "type_your_account": "Nhập tài khoản của bạn",
+  "password": "Mật khẩu",
+  "type_your_password": "Nhập mật khẩu của bạn",
+  "forgot_password": "Quên mật khẩu?",
+  "contact": "Liên hệ",
+  "best_seller": "Bán chạy nhất",
+  "new_product": "Sản phẩm mới"
 }

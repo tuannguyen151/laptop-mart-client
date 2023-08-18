@@ -8,5 +8,15 @@ module.exports = nextTranslate({
   i18n: {
     locales: ['vi', 'en'],
     defaultLocale: 'vi'
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**'
+      }
+    ]
   }
 })

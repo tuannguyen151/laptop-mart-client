@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Layout from '@/components/Layout'
+import HomeTemplate from '@/components/templates/Home'
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
         <title>HOME</title>
         <meta name='description' content='HOME description' />
       </Head>
+
+      <HomeTemplate />
     </Layout>
   )
 }

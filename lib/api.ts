@@ -8,6 +8,8 @@ import Cookies from 'js-cookie'
 
 import { convertObjectKeysToCamelCase } from './utils'
 
+import { LOGIN } from '@/constants/routes'
+
 const api = Axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
   headers: {
@@ -40,7 +42,7 @@ const errorHandler = (error: AxiosError) => {
       Cookies.remove('user')
 
       // Client site then redirect
-      if (typeof window !== 'undefined') window.location.href = '/auth/login'
+      if (typeof window !== 'undefined') window.location.href = LOGIN
       break
     default:
       break
