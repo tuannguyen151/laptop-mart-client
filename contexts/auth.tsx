@@ -1,15 +1,18 @@
-import {
-  createContext,
-  useState,
-  useContext,
-  useEffect,
-  ReactNode
-} from 'react'
-import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 
-import api from '@/lib/api'
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
+
+import Cookies from 'js-cookie'
+
 import { LOGIN_API, PROFILE_API } from '@/constants'
+import { LOGIN } from '@/constants/routes'
+import api from '@/lib/api'
 import { ILoginRequest } from '@/types/request'
 import { ILoginResponse, IUserResponse } from '@/types/response'
 
@@ -89,7 +92,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     Cookies.remove('user')
     setUser(null)
 
-    router.push('/auth/login')
+    router.push(LOGIN)
   }
 
   return (

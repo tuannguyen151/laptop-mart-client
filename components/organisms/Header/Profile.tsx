@@ -1,9 +1,12 @@
 import useTranslation from 'next-translate/useTranslation'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import SignInIcon from '@/components/atoms/icons/SignIn'
 
 import { useAuth } from '@/contexts/auth'
+
+import { LOGIN } from '@/constants/routes'
 
 const ProfileHeader = () => {
   const { isLoading, isLoggedIn } = useAuth()
@@ -16,7 +19,7 @@ const ProfileHeader = () => {
 
   if (!isLoggedIn)
     return (
-      <Link href='/auth/login' className='btn btn-ghost btn-circle'>
+      <Link href={LOGIN} className='btn btn-ghost btn-circle'>
         <SignInIcon />
       </Link>
     )
@@ -25,7 +28,12 @@ const ProfileHeader = () => {
     <div className='dropdown dropdown-end text-base-content'>
       <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
         <div className='w-10 rounded-full'>
-          <img src='https://picsum.photos/300/300' alt='avatar' />
+          <Image
+            src='https://picsum.photos/300/300'
+            alt='avatar'
+            height={256}
+            width={256}
+          />
         </div>
       </label>
       <ul
