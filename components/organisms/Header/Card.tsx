@@ -1,5 +1,7 @@
 import useTranslation from 'next-translate/useTranslation'
 
+import { formatPriceToVND } from '@/lib/utils'
+
 const CardHeader = () => {
   const { t } = useTranslation()
 
@@ -30,7 +32,9 @@ const CardHeader = () => {
       >
         <div className='card-body'>
           <span className='font-bold text-lg'>8 {t('items')}</span>
-          <span className='text-accent'>{t('total')}: 999.000 VND</span>
+          <span className='text-accent'>
+            {t('total')}: {formatPriceToVND(9999999)}
+          </span>
           <div className='card-actions'>
             <button className='btn btn-primary btn-block'>
               {t('view_cart')}

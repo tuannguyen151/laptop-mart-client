@@ -7,12 +7,14 @@ const ProductList = () => {
   // TODO: Fetch data from API
   const data: IProductCart[] = [
     {
+      id: 1,
       name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 1',
       img: 'https://picsum.photos/600/600',
       inventory: 10,
       price: 99999999
     },
     {
+      id: 2,
       name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 2',
       img: 'https://picsum.photos/600/600',
       inventory: 10,
@@ -20,18 +22,21 @@ const ProductList = () => {
       isNew: true
     },
     {
+      id: 3,
       name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 3',
       img: 'https://picsum.photos/600/600',
       inventory: 0,
       price: 99999999
     },
     {
+      id: 4,
       name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 4',
       img: 'https://picsum.photos/600/600',
       inventory: 10,
       price: 99999999
     },
     {
+      id: 5,
       name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 5',
       img: 'https://picsum.photos/600/600',
       inventory: 10,
@@ -39,6 +44,7 @@ const ProductList = () => {
       isNew: true
     },
     {
+      id: 6,
       name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 6',
       img: 'https://picsum.photos/600/600',
       inventory: 0,
@@ -51,6 +57,7 @@ const ProductList = () => {
       <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-6'>
         {data.map((productCard) => (
           <ProductCard
+            id={productCard.id}
             key={productCard.name}
             name={productCard.name}
             img={productCard.img}

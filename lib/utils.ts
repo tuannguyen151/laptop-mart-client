@@ -318,3 +318,16 @@ export function petAgeString(birthday: string | Date, lang: string): string {
 
   return getAgeString(age, 'years', 'months', 'days', ' ')
 }
+
+/**
+ * Formats a price into Vietnamese Dong (VND) currency format.
+ *
+ * @param {number} price - The price to be formatted.
+ * @return {string} The formatted price in VND currency.
+ */
+export function formatPriceToVND(price: number): string {
+  return new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND'
+  }).format(price)
+}

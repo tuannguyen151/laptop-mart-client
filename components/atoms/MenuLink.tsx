@@ -14,7 +14,7 @@ const MenuLink = ({ href, name }: IProps) => {
   return (
     <Link
       href={href}
-      className={router.pathname.includes(href) ? linkActiveClass : ''}
+      className={router.pathname === href ? linkActiveClass : ''}
     >
       {name}
     </Link>

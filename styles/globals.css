@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Slide */
+.splide__arrow {
+  @apply !btn-info transition;
+}
+
+.splide__arrow svg {
+  @apply !fill-base-200;
+}
+
+.splide_thumbnails .splide__slide {
+  @apply rounded-md !border-none !opacity-30;
+}
+
+.splide_thumbnails .splide__slide.is-active {
+  @apply !border-none !opacity-100;
+}
+
+.splide__pagination__page {
+  @apply !btn-info;
+}
