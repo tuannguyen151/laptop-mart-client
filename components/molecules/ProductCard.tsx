@@ -4,7 +4,11 @@ import Link from 'next/link'
 
 import AddToCartIcon from '../atoms/icons/AddToCart'
 
+import { PRODUCTS } from '@/constants/routes'
+import { formatPriceToVND, replaceValuesInUrl } from '@/lib/utils'
+
 export interface IProps {
+  id: number
   name: string
   img: string
   price: number
@@ -12,7 +16,7 @@ export interface IProps {
   isNew?: boolean
 }
 
-const ProductCard = ({ name, img, price, inventory, isNew }: IProps) => {
+const ProductCard = ({ id, name, img, price, inventory, isNew }: IProps) => {
   const { t } = useTranslation()
 
   return (
@@ -28,7 +32,11 @@ const ProductCard = ({ name, img, price, inventory, isNew }: IProps) => {
       </figure>
 
       <div className='card-body'>
-        <Link href='#'>
+        <Link
+          href={replaceValuesInUrl(PRODUCTS.SHOW, {
+            id
+          })}
+        >
           <h2 className='card-title leading-5 text-base'>
             {name}
             {isNew && <div className='badge badge-primary'>{t('new')}</div>}
@@ -37,10 +45,7 @@ const ProductCard = ({ name, img, price, inventory, isNew }: IProps) => {
 
         <div className='mt-auto flex flex-col gap-2'>
           <div className='card-actions justify-end font-bold text-lg'>
-            {new Intl.NumberFormat('vi-VN', {
-              style: 'currency',
-              currency: 'VND'
-            }).format(price)}
+            {formatPriceToVND(price)}
           </div>
 
           <div className='card-actions justify-end'>

@@ -40,8 +40,9 @@ const ProductCarousel = ({ label, products }: IProps) => {
       >
         <SplideTrack className='pb-8'>
           {products.map((product) => (
-            <SplideSlide key={product.name}>
+            <SplideSlide key={product.id}>
               <ProductCard
+                id={product.id}
                 name={product.name}
                 img={product.img}
                 price={product.price}

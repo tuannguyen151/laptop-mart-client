@@ -15,6 +15,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@types/js-cookie": "^3.0.3",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",

@@ -21,5 +21,24 @@
   "search_by_name": "Tìm kiếm theo tên",
   "enter_product_name": "Nhập tên sản phẩm",
   "open_filter": "Mở bộ lọc",
-  "products_list": "Sản phẩm"
+  "products_list": "Sản phẩm",
+  "product_specifications": "Thông số kỹ thuật",
+  "options": "Tùy chọn",
+  "price": "Giá",
+  "quantity_in_stock": "Số lượng trong kho",
+  "add_to_cart": "Thêm vào giỏ hàng",
+  "out_of_stock": "Hết hàng",
+  "description": "Mô tả",
+  "product_attributes": {
+    "manufacturer": "Nhà sản xuất",
+    "processor": "Bộ xử lý (CPU)",
+    "ram": "RAM",
+    "storage": "Bộ nhớ trong",
+    "graphics_card": "Card đồ họa",
+    "display": "Màn hình",
+    "resolution": "Độ phân giải",
+    "refresh_rate": "Tần số quét",
+    "color": "Màu sắc",
+    "operating_system": "Hệ điều hành"
+  }
 }
