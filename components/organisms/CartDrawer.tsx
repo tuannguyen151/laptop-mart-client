@@ -1,5 +1,3 @@
-import useTranslation from 'next-translate/useTranslation'
-
 import { useSelector } from 'react-redux'
 
 import CartEmpty from '../atoms/CartEmpty'
@@ -10,7 +8,6 @@ import CartItem from '../molecules/CartItem'
 import { cartProductsSelector } from '@/store/cart/cart.selector'
 
 const CartDrawer = () => {
-  const { t } = useTranslation()
   const cartProducts = useSelector(cartProductsSelector)
 
   return (
