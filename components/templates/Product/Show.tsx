@@ -42,7 +42,7 @@ const ShowTemplate = ({ product }: IProps) => {
 
           <ProductPrice price={displayedProduct.price} />
 
-          <BuySection inventory={displayedProduct.inventory} />
+          <BuySection product={displayedProduct} />
         </div>
       </div>
 

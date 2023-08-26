@@ -29,6 +29,11 @@
   "add_to_cart": "Thêm vào giỏ hàng",
   "out_of_stock": "Hết hàng",
   "description": "Mô tả",
+  "cart_items": "Giỏ hàng",
+  "subtotal": "Tổng cộng",
+  "cart_is_empty": "Giỏ hàng trống",
+  "shipping_calculated_at_checkout": "Phí vận chuyển được tính tại trang thanh toán",
+  "checkout": "Thanh toán",
   "product_attributes": {
     "manufacturer": "Nhà sản xuất",
     "processor": "Bộ xử lý (CPU)",
