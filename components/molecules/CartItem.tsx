@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { useEffect, useState } from 'react'
 
@@ -8,7 +9,8 @@ import useCart from '@/hooks/useCart'
 
 import { IProductCart } from '@/store/cart/cart.slice'
 
-import { formatPriceToVND } from '@/lib/utils'
+import { PRODUCTS } from '@/constants/routes'
+import { formatPriceToVND, replaceValuesInUrl } from '@/lib/utils'
 
 interface IProps {
   product: IProductCart
@@ -57,9 +59,15 @@ const CartItem = ({ product }: IProps) => {
       </div>
 
       <div className='col-span-2 p-2 flex flex-col gap-2'>
-        <h6 className='text-lg font-semibold leading-none flex-1'>
-          {product.name}
-        </h6>
+        <Link
+          href={replaceValuesInUrl(PRODUCTS.SHOW, {
+            id: product.id
+          })}
+        >
+          <h6 className='text-lg font-semibold leading-none flex-1'>
+            {product.name}
+          </h6>
+        </Link>
 
         <h6 className='text-lg font-semibold text-error leading-none'>
           {formatPriceToVND(product.price)}
