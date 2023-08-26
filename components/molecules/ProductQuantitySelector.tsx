@@ -16,8 +16,9 @@ const ProductQuantitySelector = ({ quantity, inventory, onChange }: IProps) => {
   }, [inventory, quantityState])
 
   const handleChange = (quantity: number) => {
-    setQuantityState(quantity)
-    onChange?.(quantity)
+    const newQuantity = Math.min(Math.max(1, quantity), inventory)
+    setQuantityState(newQuantity)
+    onChange?.(newQuantity)
   }
 
   return (

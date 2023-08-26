@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { IProductVariant } from '@/types/response/product'
 
-interface IProductCart {
+export interface IProductCart {
   id: IProductVariant['id']
   name: IProductVariant['name']
   price: IProductVariant['price']
@@ -17,7 +17,7 @@ interface ICartState {
 
 const initialState: ICartState = { products: [] }
 
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && localStorage.getItem('cart')) {
   const savedCart = JSON.parse(localStorage.getItem('cart') ?? '')
   if (savedCart && savedCart.products)
     initialState.products = savedCart.products

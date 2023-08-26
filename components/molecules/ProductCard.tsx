@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 import AddToCartIcon from '../atoms/icons/AddToCart'
 
+import useCart from '@/hooks/useCart'
+
 import { PRODUCTS } from '@/constants/routes'
 import { formatPriceToVND, replaceValuesInUrl } from '@/lib/utils'
 
@@ -18,6 +20,11 @@ export interface IProps {
 
 const ProductCard = ({ id, name, img, price, inventory, isNew }: IProps) => {
   const { t } = useTranslation()
+  const { addToCart } = useCart()
+
+  const handleAddToCart = () => {
+    addToCart({ id, name, image: img, price, inventory }, 1)
+  }
 
   return (
     <div className='card card-compact w-full min-h-full bg-base-100 border border-base-200 shadow-xl'>
@@ -50,7 +57,10 @@ const ProductCard = ({ id, name, img, price, inventory, isNew }: IProps) => {
 
           <div className='card-actions justify-end'>
             {inventory > 0 ? (
-              <button className='btn btn-sm btn-circle btn-outline btn-info'>
+              <button
+                className='btn btn-sm btn-circle btn-outline btn-info'
+                onClick={handleAddToCart}
+              >
                 <AddToCartIcon className='w-6 h-6' />
               </button>
             ) : (
