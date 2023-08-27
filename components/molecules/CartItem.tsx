@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { useEffect, useState } from 'react'
-
 import ProductQuantitySelector from './ProductQuantitySelector'
 
 import useCart from '@/hooks/useCart'
@@ -19,20 +17,13 @@ interface IProps {
 const CartItem = ({ product }: IProps) => {
   const { updateProductQuantity, removeFromCart } = useCart()
 
-  const [quantity, setQuantity] = useState(product.quantity)
-
-  const handleChangeQuantity = (quantity: number) => {
-    setQuantity(quantity)
-    updateProductQuantity(product.id, quantity)
+  const handleChangeQuantity = (newQuantity: number) => {
+    updateProductQuantity(product.id, newQuantity)
   }
 
   const handleRemoveProduct = () => {
     removeFromCart(product.id)
   }
-
-  useEffect(() => {
-    setQuantity(product.quantity)
-  }, [product.quantity])
 
   return (
     <div className='relative grid grid-cols-3 bg-base-100 shadow-xl rounded-xl'>
@@ -59,22 +50,23 @@ const CartItem = ({ product }: IProps) => {
       </div>
 
       <div className='col-span-2 p-2 flex flex-col gap-2'>
-        <Link
-          href={replaceValuesInUrl(PRODUCTS.SHOW, {
-            id: product.id
-          })}
-        >
-          <h6 className='text-lg font-semibold leading-none flex-1'>
+        <div className='flex-1'>
+          <Link
+            href={replaceValuesInUrl(PRODUCTS.SHOW, {
+              id: product.id
+            })}
+            className='link link-hover text-lg font-semibold leading-none'
+          >
             {product.name}
-          </h6>
-        </Link>
+          </Link>
+        </div>
 
         <h6 className='text-lg font-semibold text-error leading-none'>
           {formatPriceToVND(product.price)}
         </h6>
 
         <ProductQuantitySelector
-          quantity={quantity}
+          quantity={product.quantity}
           inventory={product.inventory}
           onChange={handleChangeQuantity}
         />

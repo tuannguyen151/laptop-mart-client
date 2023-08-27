@@ -5,3 +5,8 @@ export const PRODUCTS = {
   INDEX: '/products',
   SHOW: '/products/:id'
 }
+export const ORDERS = {
+  INDEX: '/orders',
+  NEW: '/orders/new',
+  SHOW: '/orders/:id'
+}
