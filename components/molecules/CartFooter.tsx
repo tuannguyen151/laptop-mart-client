@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import useCart from '@/hooks/useCart'
 
+import { ORDERS } from '@/constants/routes'
 import { formatPriceToVND } from '@/lib/utils'
 
 const CartFooter = () => {
@@ -24,8 +25,11 @@ const CartFooter = () => {
       </p>
 
       <div className='mt-4'>
-        <Link href='#' className='btn btn-primary btn-block text-white'>
-          {t('checkout')}
+        <Link
+          href={ORDERS.NEW}
+          className='btn btn-primary btn-block text-white'
+        >
+          {t('place_order')}
         </Link>
       </div>
     </div>
