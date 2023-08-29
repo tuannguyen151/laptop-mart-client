@@ -59,6 +59,15 @@
   "product_list": "Danh sách sản phẩm",
   "order": "Đơn hàng",
   "place_order": "Đặt hàng",
+  "order_detail": "Chi tiết đơn hàng",
+  "order_status_text": "Trạng thái đơn hàng",
+  "shipping_address_text": "Địa chỉ giao hàng",
+  "note": "Ghi chú",
+  "order_datetime": "Thời gian tạo đơn hàng",
+  "recipient_name": "Tên người nhận",
+  "recipient_phone": "Số điện thoại người nhận",
+  "cancel_order": "Hủy đơn hàng",
+  "payment_method_title": "Phương thức thanh toán",
   "product_attributes": {
     "manufacturer": "Nhà sản xuất",
     "processor": "Bộ xử lý (CPU)",
@@ -87,5 +96,24 @@
     "type_address": "Nhập địa chỉ",
     "note": "Ghi chú",
     "type_note": "Nhập ghi chú"
+  },
+  "order_status": {
+    "waiting_for_payment": "Chờ thanh toán",
+    "processing": "Đang xử lý",
+    "shipping": "Đang vận chuyển",
+    "completed": "Hoàn thành",
+    "cancelled": "Đã hủy"
+  },
+  "payment_method": {
+    "credit_card": "Thẻ tín dụng",
+    "bank_transfer": "Chuyển khoản ngân hàng",
+    "momo": "MOMO",
+    "zalopay": "ZALOPAY",
+    "paypal": "PAYPAL",
+    "cash_on_delivery": "COD"
+  },
+  "payment_status": {
+    "unpaid": "Chưa thanh toán",
+    "paid": "Đã thanh toán"
   }
 }

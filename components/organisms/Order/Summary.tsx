@@ -34,12 +34,6 @@ const OrderSummary = () => {
         </span>
       </div>
 
-      <div className='text-sm text-gray-500 self-end'>
-        <span>
-          {t('delivery_method')}: <span className='font-semibold'>COD</span>
-        </span>
-      </div>
-
       <div className='text-sm text-gray-500 self-end italic mb-1'>
         <span>({t('shipping_fee_is_calculated_receipt')})</span>
       </div>
