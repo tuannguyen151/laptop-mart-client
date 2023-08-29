@@ -2,7 +2,7 @@ import useTranslation from 'next-translate/useTranslation'
 
 import MenuLink from '../atoms/MenuLink'
 
-import { PRODUCTS } from '@/constants/routes'
+import { ORDERS, PRODUCTS } from '@/constants/routes'
 
 interface IProps {
   isDesktop?: boolean
@@ -25,23 +25,24 @@ const Menu = ({ isDesktop }: IProps) => {
       </li>
       <li tabIndex={0}>
         <details>
-          <summary>Parent</summary>
+          <summary>{t('category')}</summary>
           <ul
             className={`p-2 w-32 text-base-content z-[9999] ${
               isDesktop ? 'border border-base-200' : ''
             }`}
           >
             <li>
-              <a>Submenu 1</a>
+              <a>Apple</a>
             </li>
             <li>
-              <a>Submenu 2</a>
+              <a>Samsung</a>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <a>Item 3</a>
+        {/* TODO: Check auth */}
+        <MenuLink href={ORDERS.INDEX} name={t('order_list')} />
       </li>
     </ul>
   )

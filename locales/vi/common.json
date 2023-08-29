@@ -68,6 +68,8 @@
   "recipient_phone": "Số điện thoại người nhận",
   "cancel_order": "Hủy đơn hàng",
   "payment_method_title": "Phương thức thanh toán",
+  "category": "Danh mục",
+  "order_list": "Danh sách đơn hàng",
   "product_attributes": {
     "manufacturer": "Nhà sản xuất",
     "processor": "Bộ xử lý (CPU)",
