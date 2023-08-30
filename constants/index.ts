@@ -18,3 +18,4 @@ export const ATTRIBUTE_CONFIGS: {
 ]
 
 export * from './api'
+export * as API_ERROR_TYPE from './api_error_type'

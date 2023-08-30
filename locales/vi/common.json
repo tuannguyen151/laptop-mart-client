@@ -70,6 +70,7 @@
   "payment_method_title": "Phương thức thanh toán",
   "category": "Danh mục",
   "order_list": "Danh sách đơn hàng",
+  "login_success": "Đăng nhập thành công",
   "product_attributes": {
     "manufacturer": "Nhà sản xuất",
     "processor": "Bộ xử lý (CPU)",

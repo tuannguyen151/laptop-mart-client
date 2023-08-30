@@ -9,7 +9,7 @@ import { useAuth } from '@/contexts/auth'
 import { LOGIN } from '@/constants/routes'
 
 const ProfileHeader = () => {
-  const { isLoading, isLoggedIn } = useAuth()
+  const { isLoading, isLoggedIn, logout } = useAuth()
   const { t } = useTranslation()
 
   if (isLoading)
@@ -47,7 +47,7 @@ const ProfileHeader = () => {
           </Link>
         </li>
         <li>
-          <Link href='/'>{t('logout')}</Link>
+          <button onClick={logout}>{t('logout')}</button>
         </li>
       </ul>
     </div>
