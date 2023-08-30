@@ -4,6 +4,6 @@ module.exports = {
   defaultNS: 'common',
   pagesInDir: 'pages',
   pages: {
-    '*': ['common']
+    '*': ['common', 'errors']
   }
 }
