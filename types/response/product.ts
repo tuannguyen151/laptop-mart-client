@@ -28,3 +28,23 @@ export interface IProduct extends IAttributes {
   }[]
   variants?: IProductVariant[]
 }
+
+export interface IProductListItem {
+  id: number
+  parentId?: number
+  name: string
+  price: number
+  inventory: number
+  quantitySold: number
+  weight: number
+  images: {
+    url: string
+  }[]
+  description?: string
+  createdAt: string // ISO 8601
+}
+
+export interface IProductList {
+  count: number
+  rows: IProductListItem[]
+}
