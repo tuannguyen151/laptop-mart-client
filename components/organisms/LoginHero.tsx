@@ -3,10 +3,20 @@ import Link from 'next/link'
 
 import LoginForm from './LoginForm'
 
+import { useAuth } from '@/contexts/auth'
+
 import { REGISTER } from '@/constants/routes'
 
 const LoginHero = () => {
+  const { isLoggedIn, isLoading } = useAuth()
   const { t } = useTranslation()
+
+  if (isLoading)
+    return (
+      <div className='min-h-[25rem] rounded-box bg-slate-100 dark:bg-slate-800 animate-pulse' />
+    )
+
+  if (isLoggedIn) return null
 
   return (
     <div
