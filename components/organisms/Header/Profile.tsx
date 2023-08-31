@@ -6,7 +6,7 @@ import SignInIcon from '@/components/atoms/icons/SignIn'
 
 import { useAuth } from '@/contexts/auth'
 
-import { LOGIN } from '@/constants/routes'
+import { LOGIN, PROFILE } from '@/constants/routes'
 
 const ProfileHeader = () => {
   const { isLoading, isLoggedIn, logout } = useAuth()
@@ -41,7 +41,7 @@ const ProfileHeader = () => {
         className='mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 border border-base-200'
       >
         <li>
-          <Link href='/' className='justify-between'>
+          <Link href={PROFILE} className='justify-between'>
             {t('profile')}
             <span className='badge'>{t('new')}</span>
           </Link>

@@ -26,12 +26,14 @@ const AuthContext = createContext<{
   isLoggedIn: boolean
   isLoading: boolean
   user: IUserResponse | undefined
+  updateUser: () => Promise<void>
   login: (payload: ILoginRequest) => Promise<void>
   logout: () => void
 }>({
   isLoggedIn: isLoggedInLocal,
   isLoading: true,
   user: userLocal,
+  updateUser: () => Promise.reject(),
   login: () => Promise.reject(),
   logout: () => undefined
 })
@@ -41,21 +43,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<any>(userLocal)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
+  const updateUser = async () => {
+    const { data: user } = await api.get<IUserResponse>(PROFILE_API)
+
+    const userCookies = Cookies.get('user')
+
+    if (JSON.stringify(user) !== userCookies) {
+      setUser(user)
+      Cookies.set('user', JSON.stringify(user), {
+        expires: Number(process.env.NEXT_PUBLIC_LOGIN_EXPIRES_DAY || 180)
+      })
+    }
+  }
+
   useEffect(() => {
     async function loadUserFromCookies() {
       const token = Cookies.get('token')
 
       if (token) {
-        const { data: user } = await api.get<IUserResponse>(PROFILE_API)
-
-        const userCookies = Cookies.get('user')
-
-        if (JSON.stringify(user) !== userCookies) {
-          setUser(user)
-          Cookies.set('user', JSON.stringify(user), {
-            expires: Number(process.env.NEXT_PUBLIC_LOGIN_EXPIRES_DAY || 180)
-          })
-        }
+        await updateUser()
       }
 
       setIsLoading(false)
@@ -69,7 +75,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       data: { token }
     } = await api.post<ILoginResponse>(LOGIN_API, {
       account: username,
-      password
+      password,
+      isUser: true
     })
 
     if (token) {
@@ -97,7 +104,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: !!user, user, login, isLoading, logout }}
+      value={{ isLoggedIn: !!user, user, login, isLoading, logout, updateUser }}
     >
       {children}
     </AuthContext.Provider>

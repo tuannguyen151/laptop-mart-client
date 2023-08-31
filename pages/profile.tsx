@@ -1,17 +1,18 @@
-import PageWithAuth from '@/components/PageWithAuth'
-import { useAuth } from '@/contexts/auth'
 import Head from 'next/head'
 
-const Profile = () => {
-  const { user } = useAuth()
+import Layout from '@/components/Layout'
+import PageWithAuth from '@/components/PageWithAuth'
+import ProfileTemplate from '@/components/templates/Profile'
 
+const Profile = () => {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Profile</title>
       </Head>
-      <div>{user?.email}</div>
-    </>
+
+      <ProfileTemplate />
+    </Layout>
   )
 }
 
