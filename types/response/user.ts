@@ -1,4 +1,6 @@
 export interface IUserResponse {
-  username: string
-  email: string
+  firstName?: string
+  lastName?: string
+  phone?: string
+  email?: string
 }

@@ -79,6 +79,8 @@ export default function usePatchMethod<IRequest, IResponse>(apiUrl: string) {
           type: 'success',
           data: data
         })
+
+        return data
       } catch (error: any) {
         dispatch({
           type: 'error',
