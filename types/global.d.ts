@@ -6,7 +6,7 @@ declare global {
   interface IColor {
     id: number
     name: string
-    hex_code: string
+    hexCode: string
   }
 
   interface IDisplay {

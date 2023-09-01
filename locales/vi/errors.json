@@ -1,4 +1,6 @@
 {
+  "load_more_error": "Có lỗi khi tải thêm dữ liệu!",
+  "load_page_error": "Có lỗi khi tải trang!",
   "page_not_found": "Trang bạn yêu cầu không tìm thấy!",
   "server_error": "Đã có lỗi xảy ra! Vui lòng thử lại sau!",
   "file_format_error": "File '{{fileName}}' không đúng định dạng",
