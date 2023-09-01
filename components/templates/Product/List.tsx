@@ -1,11 +1,32 @@
 import useTranslation from 'next-translate/useTranslation'
 
+import { useCallback } from 'react'
+import { toast } from 'react-toastify'
+
+import NoResultsFound from '@/components/atoms/NoResultsFound'
 import MenuIcon from '@/components/atoms/icons/Menu'
+import Pagination from '@/components/molecules/Pagination'
 import ProductFilter from '@/components/organisms/Product/Filter'
 import ProductList from '@/components/organisms/Product/List'
 
-const List = () => {
+import { useListProduct } from '@/services/products/list'
+import { IProductListRequest } from '@/types/request/product'
+import { IProductList } from '@/types/response/product'
+
+const List = (props: IProductList) => {
   const { t } = useTranslation()
+
+  const { data, payload, setPayload, isLoading, isValidating, error } =
+    useListProduct(props)
+
+  const onFilterChange = useCallback(
+    (payload: IProductListRequest) => {
+      setPayload((prev) => ({ ...prev, page: 1, ...payload }))
+    },
+    [setPayload]
+  )
+
+  if (error) toast.error(t('errors:load_page_error') as string)
 
   return (
     <div className='drawer lg:drawer-open'>
@@ -26,15 +47,26 @@ const List = () => {
           </label>
         </div>
 
-        <ProductList />
+        <ProductList products={data?.rows || []} />
+
+        {data?.count === 0 && !isLoading && <NoResultsFound />}
+
+        {data?.count !== 0 && !isValidating && (
+          <div className='flex justify-center items-center mt-6'>
+            <Pagination
+              page={payload?.page as number}
+              limit={payload?.pageSize as number}
+              total={data?.count as number}
+              setPage={(page) => setPayload((prev) => ({ ...prev, page }))}
+            />
+          </div>
+        )}
       </div>
 
       <div className='drawer-side z-50'>
         <label htmlFor='product-list-drawer' className='drawer-overlay'></label>
 
-        <div className='w-60 h-fit max-lg:bg-base-200 max-lg:text-base-content px-2 flex flex-col gap-4 py-4'>
-          <ProductFilter />
-        </div>
+        <ProductFilter onChange={onFilterChange} />
       </div>
     </div>
   )

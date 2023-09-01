@@ -1,3 +1,16 @@
+export interface IProductMasterData {
+  colors: IColor[]
+  displays: IDisplay[]
+  graphicsCards: IGraphicsCard[]
+  manufacturers: IManufacturer[]
+  operatingSystems: IOperatingSystem[]
+  processors: IProcessor[]
+  rams: IRam[]
+  refreshRates: IRefreshRate[]
+  resolutions: IResolution[]
+  storages: IStorage[]
+}
+
 export interface IProductVariant extends Partial<IAttributes> {
   id: number
   parentId: number

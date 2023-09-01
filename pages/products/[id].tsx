@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     color: {
       id: 2,
       name: 'Trắng',
-      hex_code: 'F5F5F5'
+      hexCode: 'F5F5F5'
     },
     display: {
       id: 1,
@@ -113,7 +113,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         color: {
           id: 1,
           name: 'Đen',
-          hex_code: '333333'
+          hexCode: '333333'
         },
         graphicsCard: {
           id: 2,
@@ -138,7 +138,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         color: {
           id: 3,
           name: 'Bạc',
-          hex_code: 'B0B0B0'
+          hexCode: 'B0B0B0'
         },
         images: [
           {

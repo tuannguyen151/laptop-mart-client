@@ -1,77 +1,25 @@
-import Pagination from '@/components/molecules/Pagination'
-import ProductCard, {
-  IProps as IProductCart
-} from '@/components/molecules/ProductCard'
+import ProductCard from '@/components/molecules/ProductCard'
 
-const ProductList = () => {
-  // TODO: Fetch data from API
-  const data: IProductCart[] = [
-    {
-      id: 1,
-      name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 1',
-      img: 'https://picsum.photos/600/600',
-      inventory: 10,
-      price: 99999999
-    },
-    {
-      id: 2,
-      name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 2',
-      img: 'https://picsum.photos/600/600',
-      inventory: 10,
-      price: 99999999,
-      isNew: true
-    },
-    {
-      id: 3,
-      name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 3',
-      img: 'https://picsum.photos/600/600',
-      inventory: 0,
-      price: 99999999
-    },
-    {
-      id: 4,
-      name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 4',
-      img: 'https://picsum.photos/600/600',
-      inventory: 10,
-      price: 99999999
-    },
-    {
-      id: 5,
-      name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 5',
-      img: 'https://picsum.photos/600/600',
-      inventory: 10,
-      price: 99999999,
-      isNew: true
-    },
-    {
-      id: 6,
-      name: 'Laptop Lenovo IdeaPad Slim 5 Pro 14IAP7 (82SH002TVN) 6',
-      img: 'https://picsum.photos/600/600',
-      inventory: 0,
-      price: 99999999
-    }
-  ]
+import { IProductListItem } from '@/types/response/product'
 
+interface IProps {
+  products: IProductListItem[]
+}
+
+const ProductList = ({ products }: IProps) => {
   return (
-    <>
-      <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-6'>
-        {data.map((productCard) => (
-          <ProductCard
-            id={productCard.id}
-            key={productCard.name}
-            name={productCard.name}
-            img={productCard.img}
-            inventory={productCard.inventory}
-            price={productCard.price}
-            isNew={productCard.isNew}
-          />
-        ))}
-      </div>
-
-      <div className='flex justify-center items-center mt-6'>
-        <Pagination page={2} limit={24} total={56} setPage={() => undefined} />
-      </div>
-    </>
+    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-6'>
+      {products.map((productCard) => (
+        <ProductCard
+          id={productCard.id}
+          key={productCard.name}
+          name={productCard.name}
+          img={productCard.images[0].url}
+          inventory={productCard.inventory}
+          price={productCard.price}
+        />
+      ))}
+    </div>
   )
 }
 
