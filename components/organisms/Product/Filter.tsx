@@ -52,55 +52,55 @@ const ProductFilter = ({ onChange }: IProps) => {
       </div>
 
       <FilterItem
-        title={'manufacturers'}
+        title={t('product_attributes.manufacturer')}
         data={data.manufacturers}
         register={register.manufacturers}
       />
       <FilterItem
-        title={'colors'}
+        title={t('product_attributes.color')}
         data={data.colors}
         register={register.colors}
       />
       <FilterItem
-        title={'processors'}
+        title={t('product_attributes.processor')}
         data={data.processors}
         register={register.processors}
       />
       <FilterItem
-        title={'rams'}
+        title={t('product_attributes.ram')}
         data={data.rams}
         type='rams'
         register={register.rams}
       />
       <FilterItem
-        title={'storages'}
+        title={t('product_attributes.storage')}
         data={data.storages}
         type='storages'
         register={register.storages}
       />
       <FilterItem
-        title={'displays'}
+        title={t('product_attributes.display')}
         data={data.displays}
         type='displays'
         register={register.displays}
       />
       <FilterItem
-        title={'refreshRates'}
+        title={t('product_attributes.refresh_rate')}
         data={data.refreshRates}
         register={register.refreshRates}
       />
       <FilterItem
-        title={'resolutions'}
+        title={t('product_attributes.resolution')}
         data={data.resolutions}
         register={register.resolutions}
       />
       <FilterItem
-        title={'graphicsCards'}
+        title={t('product_attributes.graphics_card')}
         data={data.graphicsCards}
         register={register.graphicsCards}
       />
       <FilterItem
-        title={'operatingSystems'}
+        title={t('product_attributes.operating_system')}
         data={data.operatingSystems}
         register={register.operatingSystems}
       />
