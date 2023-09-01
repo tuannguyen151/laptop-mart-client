@@ -5,13 +5,16 @@ import useSWR from 'swr'
 import { LIST_PRODUCTS_API } from '@/constants'
 import api from '@/lib/api'
 import { IProductListRequest } from '@/types/request/product'
-import { IProductList } from '@/types/response/product'
+import { IProductList, IProductListItem } from '@/types/response/product'
 
 const initPayloadListProduct: IProductListRequest = {
   page: 1,
   pageSize: 24,
   sort: 'createdAt:desc'
 }
+
+export const fetchAllProduct = () =>
+  api.get<IProductListItem[]>(LIST_PRODUCTS_API).then((res) => res.data)
 
 export const fetcherListProduct = (payload?: IProductListRequest) =>
   api

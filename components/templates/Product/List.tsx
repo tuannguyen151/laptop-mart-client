@@ -47,7 +47,7 @@ const List = (props: IProductList) => {
           </label>
         </div>
 
-        <ProductList products={data?.rows || []} />
+        {!isLoading && <ProductList products={data?.rows || []} />}
 
         {data?.count === 0 && !isLoading && <NoResultsFound />}
 
