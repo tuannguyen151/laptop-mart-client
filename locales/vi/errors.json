@@ -13,6 +13,7 @@
   "not_matching_password": "Mật khẩu không khớp",
   "email_exists": "Email đã được sử dụng",
   "phone_not_found": "Số điện thoại không tồn tại",
+  "username_exists": "Tên đăng nhập đã được sử dụng",
   "phone_exists": "Số điện thoại đã được sử dụng",
   "invalid_token": "Token không hợp lệ",
   "invalid_otp": "OTP không đúng. Vui lòng nhập lại",

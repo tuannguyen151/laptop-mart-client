@@ -1,96 +1,90 @@
 import useTranslation from 'next-translate/useTranslation'
 
+import FormField from '../molecules/FormField'
+
+import useRegisterForm from '@/hooks/auth/useRegisterForm.hook'
+
 const RegisterForm = () => {
   const { t } = useTranslation()
+  const {
+    register,
+    formState: { errors },
+    isLoading,
+    onSubmit
+  } = useRegisterForm()
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className='grid md:grid-cols-2 gap-x-4'>
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text'>{t('last_name')}</span>
-          </label>
-          <input
-            type='text'
-            placeholder={t('type_your_last_name')}
-            className='input input-bordered'
-          />
-        </div>
+        <FormField
+          label={t('last_name')}
+          register={register.lastName}
+          errorMessage={errors.lastName?.message}
+          inputProps={{ placeholder: t('type_your_last_name') }}
+        />
 
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text'>{t('first_name')}</span>
-          </label>
-          <input
-            type='text'
-            placeholder={t('type_your_first_name')}
-            className='input input-bordered'
-          />
-        </div>
-      </div>
-
-      <div className='form-control'>
-        <label className='label'>
-          <span className='label-text'>{t('account')}</span>
-        </label>
-        <input
-          type='text'
-          placeholder={t('type_your_account')}
-          required
-          className='input input-bordered'
+        <FormField
+          label={t('first_name')}
+          register={register.firstName}
+          errorMessage={errors.firstName?.message}
+          inputProps={{ placeholder: t('type_your_first_name') }}
         />
       </div>
 
-      <div className='form-control'>
-        <label className='label'>
-          <span className='label-text'>{t('email')}</span>
-        </label>
-        <input
-          type='email'
-          placeholder={t('type_your_email')}
-          className='input input-bordered'
-        />
-      </div>
+      <FormField
+        label={t('account')}
+        register={register.username}
+        errorMessage={errors.username?.message}
+        inputProps={{ placeholder: t('type_your_account') }}
+      />
 
-      <div className='form-control'>
-        <label className='label'>
-          <span className='label-text'>{t('phone')}</span>
-        </label>
-        <input
-          type='email'
-          placeholder={t('type_your_phone')}
-          className='input input-bordered'
-        />
-      </div>
+      <FormField
+        label={t('email')}
+        register={register.email}
+        errorMessage={errors.email?.message}
+        inputProps={{ type: 'email', placeholder: t('type_your_email') }}
+      />
+
+      <FormField
+        label={t('phone')}
+        register={register.phone}
+        errorMessage={errors.phone?.message}
+        inputProps={{ placeholder: t('type_your_phone') }}
+      />
 
       <div className='grid md:grid-cols-2 gap-x-4'>
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text'>{t('password')}</span>
-          </label>
-          <input
-            type='password'
-            required
-            placeholder={t('type_your_password')}
-            className='input input-bordered'
-          />
-        </div>
+        <FormField
+          label={t('password')}
+          register={register.password}
+          errorMessage={errors.password?.message}
+          inputProps={{
+            type: 'password',
+            placeholder: t('type_your_password')
+          }}
+        />
 
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text'>{t('confirm_password')}</span>
-          </label>
-          <input
-            type='password'
-            required
-            placeholder={t('type_your_confirm_password')}
-            className='input input-bordered'
-          />
-        </div>
+        <FormField
+          label={t('confirm_password')}
+          register={register.confirmPassword}
+          errorMessage={errors.confirmPassword?.message}
+          inputProps={{
+            type: 'password',
+            placeholder: t('type_your_confirm_password')
+          }}
+        />
       </div>
 
       <div className='form-control mt-6'>
-        <button className='btn btn-accent'>{t('register')}</button>
+        <button
+          type='submit'
+          className={`btn btn-accent ${
+            Object.keys(errors).length !== 0 || isLoading
+              ? 'opacity-20 pointer-events-none'
+              : ''
+          }`}
+        >
+          {t('register')}
+        </button>
       </div>
     </form>
   )
