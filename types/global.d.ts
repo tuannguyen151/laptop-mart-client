@@ -67,6 +67,24 @@ declare global {
     resolution: IResolution
     storage: IStorage
   }
+
+  interface IProvince {
+    id: number
+    code: string
+    name: string
+  }
+
+  interface IDistrict {
+    id: number
+    name: string
+    province_id: number
+  }
+
+  interface IWard {
+    id: number
+    name: string
+    district_id: number
+  }
 }
 
 export {}

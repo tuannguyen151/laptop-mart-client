@@ -2,6 +2,10 @@ import { IProduct } from './product'
 
 import { ORDER } from '@/constants/master_data'
 
+export interface IOrderCreateResponse {
+  id: number
+}
+
 export interface IOrderItemResponse {
   id: number
   orderId: number
