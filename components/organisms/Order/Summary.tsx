@@ -34,11 +34,9 @@ const OrderSummary = () => {
         </span>
       </div>
 
-      <div className='text-sm text-gray-500 self-end italic mb-1'>
+      <div className='text-sm text-gray-500 self-end italic'>
         <span>({t('shipping_fee_is_calculated_receipt')})</span>
       </div>
-
-      <button className='btn btn-neutral btn-block'>{t('place_order')}</button>
     </div>
   )
 }
