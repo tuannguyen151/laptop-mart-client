@@ -34,3 +34,16 @@ export interface IOrderResponse {
   orderPayment: IOrderPaymentResponse
   createdAt: string // ISO 8601
 }
+
+export interface IOrderListItem {
+  id: number
+  status: keyof typeof ORDER.STATUS
+  recipientName: string
+  recipientPhone: string
+  totalAmount: number
+  shippingAddress: string
+  note?: string
+  createdAt: string // ISO 8601
+  orderItems: IOrderItemResponse[]
+  orderPayment?: IOrderPaymentResponse
+}

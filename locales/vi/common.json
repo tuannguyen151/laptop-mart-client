@@ -62,6 +62,8 @@
   "order_detail": "Chi tiết đơn hàng",
   "order_status_text": "Trạng thái đơn hàng",
   "shipping_address_text": "Địa chỉ giao hàng",
+  "order_created_at": "Thời gian tạo đơn hàng",
+  "total_amount": "Tổng tiền",
   "note": "Ghi chú",
   "order_datetime": "Thời gian tạo đơn hàng",
   "recipient_name": "Tên người nhận",

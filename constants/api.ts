@@ -11,3 +11,4 @@ export const LIST_DISTRICTS_API = (provinceId: number) =>
 export const LIST_WARDS_API = (districtId: number) =>
   `/shippings/districts/${districtId}/wards`
 export const CREATE_ORDER_API = '/orders'
+export const LIST_ORDERS_API = '/orders'
