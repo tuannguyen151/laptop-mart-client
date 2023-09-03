@@ -1,6 +1,7 @@
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
 
+import CancelOrder from '@/components/organisms/Order/CancelOrder'
 import ListItems from '@/components/organisms/Order/ListItems'
 import OrderDetail from '@/components/organisms/Order/OrderDetail'
 import PaymentMethod from '@/components/organisms/Order/PaymentMethod'
@@ -58,7 +59,7 @@ const ShowTemplate = () => {
 
             {ORDER.STATUS[order.status] === 'waiting_for_payment' && (
               <div className='mt-2 text-right'>
-                <button className='btn btn-neutral'>{t('cancel_order')}</button>
+                <CancelOrder id={order.id} />
               </div>
             )}
 

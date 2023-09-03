@@ -1,5 +1,7 @@
 import { IProduct } from '../response/product'
 
+import { ORDER } from '@/constants/master_data'
+
 export interface IOrderShippingAddressRequest {
   provinceId?: IProvince['id']
   districtId?: IDistrict['id']
@@ -16,4 +18,9 @@ export interface IOrderRequest {
     productId: IProduct['id']
     quantity: number
   }[]
+}
+
+export interface IOrderUpdateRequest
+  extends Partial<Omit<IOrderRequest, 'orderItems'>> {
+  status?: keyof typeof ORDER.STATUS
 }
