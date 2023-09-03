@@ -16,6 +16,15 @@ const initPayloadListProduct: IProductListRequest = {
 export const fetchAllProduct = () =>
   api.get<IProductListItem[]>(LIST_PRODUCTS_API).then((res) => res.data)
 
+export const fetchAllProductByIds = (ids: IProductListRequest['ids']) =>
+  api
+    .get<IProductListItem[]>(LIST_PRODUCTS_API, {
+      params: {
+        ids
+      }
+    })
+    .then((res) => res.data)
+
 export const fetcherListProduct = (payload?: IProductListRequest) =>
   api
     .get<IProductList>(LIST_PRODUCTS_API, {
@@ -46,6 +55,20 @@ export const useListProduct = (fallback?: IProductList) => {
     setPayload,
     payload,
     data,
+    error,
+    isLoading,
+    isValidating
+  }
+}
+
+export const useFetchAllProductByIds = (ids?: IProductListRequest['ids']) => {
+  const { data, error, isLoading, isValidating } = useSWR(
+    ids ? [LIST_PRODUCTS_API, ids] : null,
+    ([, ids]) => fetchAllProductByIds(ids)
+  )
+
+  return {
+    data: data || [],
     error,
     isLoading,
     isValidating

@@ -14,7 +14,7 @@ export interface IProductFilterRequest {
 
 export interface IProductListRequest extends IProductFilterRequest {
   isParent?: boolean
-  ids?: number[]
+  ids?: string // comma separated
   sort?: string
   pageSize?: number
   page?: number

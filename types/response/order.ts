@@ -31,7 +31,7 @@ export interface IOrderResponse {
   shippingAddress: string
   note?: string
   orderItems: IOrderItemResponse[]
-  orderPayment: IOrderPaymentResponse
+  orderPayment?: IOrderPaymentResponse
   createdAt: string // ISO 8601
 }
 

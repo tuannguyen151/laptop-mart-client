@@ -12,3 +12,4 @@ export const LIST_WARDS_API = (districtId: number) =>
   `/shippings/districts/${districtId}/wards`
 export const CREATE_ORDER_API = '/orders'
 export const LIST_ORDERS_API = '/orders'
+export const ORDER_DETAIL_API = (id: number) => `/orders/${id}`
