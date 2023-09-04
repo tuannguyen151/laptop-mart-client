@@ -14,3 +14,5 @@ export const CREATE_ORDER_API = '/orders'
 export const LIST_ORDERS_API = '/orders'
 export const ORDER_DETAIL_API = (id: number) => `/orders/${id}`
 export const UPDATE_ORDER_API = (id: number) => `/orders/${id}`
+export const CREATE_PAYMENT_API = (orderId: number) =>
+  `/orders/${orderId}/payments`

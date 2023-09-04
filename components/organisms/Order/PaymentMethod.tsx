@@ -6,6 +6,8 @@ import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 
 import { PAYMENT } from '@/constants/master_data'
+import { useCreatePayment } from '@/services/order/payments/create'
+import { IOrderResponse } from '@/types/response/order'
 
 import logoCashOnDeliveryImage from '@/public/images/logo-cash-on-delivery.png'
 import logoMomoImage from '@/public/images/logo-momo.png'
@@ -27,15 +29,19 @@ const PAYMENT_METHODS: IPaymentMethod[] = [
 ]
 
 interface IProps {
-  onPayment?: (method: keyof typeof PAYMENT.METHOD) => void
+  orderId: IOrderResponse['id']
 }
 
-export default function PaymentMethod({ onPayment }: IProps) {
-  const [selected, setSelected] = useState(PAYMENT_METHODS[0])
+export default function PaymentMethod({ orderId }: IProps) {
   const { t } = useTranslation()
+  const { createPayment, isLoading } = useCreatePayment(orderId)
 
-  const handleClick = () => {
-    onPayment?.(selected.value)
+  const [selected, setSelected] = useState(PAYMENT_METHODS[0])
+
+  const handleCheckout = () => {
+    createPayment({
+      method: selected.value
+    })
   }
 
   return (
@@ -80,7 +86,12 @@ export default function PaymentMethod({ onPayment }: IProps) {
         </div>
       </RadioGroup>
 
-      <button className='btn btn-neutral mt-4' onClick={handleClick}>
+      <button
+        className={`btn btn-neutral mt-4 ${
+          isLoading ? 'opacity-20 pointer-events-none' : ''
+        }`}
+        onClick={handleCheckout}
+      >
         {t('checkout')}
       </button>
     </div>
