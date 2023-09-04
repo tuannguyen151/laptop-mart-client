@@ -3,6 +3,7 @@
   "load_page_error": "Có lỗi khi tải trang!",
   "page_not_found": "Trang bạn yêu cầu không tìm thấy!",
   "server_error": "Đã có lỗi xảy ra! Vui lòng thử lại sau!",
+  "payment_not_implemented": "Phương thức thanh toán chưa được hỗ trợ",
   "file_format_error": "File '{{fileName}}' không đúng định dạng",
   "file_size_error": "File '{{fileName}}' quá lớn. Kích thước tối đa cho phép là {{maxFileSize}}MB",
   "max_files_error": "Bạn chỉ được phép tải lên tối đa {{maxFiles}} file",

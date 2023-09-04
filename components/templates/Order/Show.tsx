@@ -69,9 +69,7 @@ const ShowTemplate = () => {
                   {t('payment_method_title')}
                 </h5>
 
-                <PaymentMethod
-                  onPayment={(method) => console.log('method', method)}
-                />
+                <PaymentMethod orderId={order.id} />
               </div>
             )}
           </>
