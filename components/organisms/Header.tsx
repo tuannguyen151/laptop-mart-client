@@ -1,3 +1,5 @@
+import ToggleLanguage from '../molecules/ToggleLanguage'
+
 import Logo from '@/components/atoms/Logo'
 import MenuIcon from '@/components/atoms/icons/Menu'
 import Menu from '@/components/molecules/Menu'
@@ -16,8 +18,10 @@ const Header = () => {
         <Menu isDesktop />
       </div>
 
-      <div className='navbar-end gap-2'>
+      <div className='navbar-end gap-2 max-sm:gap-1'>
         <ToggleTheme />
+
+        <ToggleLanguage />
 
         <CardHeader />
 
