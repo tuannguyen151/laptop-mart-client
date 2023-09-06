@@ -26,6 +26,10 @@ function useValidateOrderForm(defaultValues: {
     defaultValues
   })
 
+  useEffect(() => {
+    setValue('orderItems', defaultValues.orderItems)
+  }, [defaultValues, setValue])
+
   const recipientNameRegister = register('recipientName', {
     setValueAs: (value) => value || null,
     required: t('required'),
